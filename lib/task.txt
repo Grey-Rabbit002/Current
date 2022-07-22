@@ -1,0 +1,14 @@
+now the next step would be updating widget data and trying the same for a stateless widegt
+
+now it did not happens as we are trying to change internal state of a widget
+
+the way to do achive the same is using stateful widegts
+
+#creating our own custom widegts
+
+using map to create a list of widgets and spreading using spread operator
+final vs  const 
+
+###############################################################
+
+
