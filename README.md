@@ -1,4 +1,4 @@
-# practice1
+# Planet Quiz
 
 A new Flutter project.
 
