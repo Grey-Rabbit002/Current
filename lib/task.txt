@@ -8,3 +8,5 @@ the way to do achive the same is using stateful widegts
 
 using map to create a list of widgets and spreading using spread operator
 final vs  const 
+
+now after having the result calculated we ll reset() the quiz
