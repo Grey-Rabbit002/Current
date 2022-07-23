@@ -1,12 +1,11 @@
-// ignore_for_file: sort_child_properties_last
+// ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  // const Answer({Key? key}) : super(key: key);
-
-  final VoidCallback selectHandler;
+  final Function selectHandler;
   final String answerText;
+
   Answer(this.selectHandler, this.answerText);
 
   @override
@@ -14,10 +13,10 @@ class Answer extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: RaisedButton(
-        child: Text(answerText),
-        onPressed: selectHandler,
         color: Colors.blue,
         textColor: Colors.white,
+        child: Text(answerText),
+        onPressed: selectHandler,
       ),
     );
   }

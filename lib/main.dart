@@ -1,31 +1,26 @@
-// ignore_for_file: deprecated_member_use, avoid_print
-//######################################################################################
-
-//PLANET QUIZ APP//
-
-//#####################################################################################
 import 'package:flutter/material.dart';
+
 import './quiz.dart';
 import './result.dart';
-
-// import './question.dart';
-// import './answer.dart';
 // void main() {
 //   runApp(MyApp());
 // }
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var indexQuestion = 0;
-  int totalscore = 0;
-  final questions = [
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+  // ignore: unused_field
+  var _totalScore = 0;
+
+  final _questions = const [
     {
       'questionText': "How many planets are there in our solar system?",
       'answer': [
@@ -57,33 +52,44 @@ class MyAppState extends State<MyApp> {
     },
   ];
 
-  void answerQuestion(int score) {
-    totalscore += score;
-    setState(() {
-      indexQuestion += 1;
-    });
+  void _answerQuestion(int score) {
+    // var aBool = true;
+    // aBool = false;
 
-    if (indexQuestion < questions.length) {
-      print("More Questions avaialable");
+    _totalScore += score;
+
+    setState(() {
+      _questionIndex = _questionIndex + 1;
+    });
+    print(_questionIndex);
+    if (_questionIndex < _questions.length) {
+      print('We have more questions!');
+    } else {
+      print('No more questions!');
     }
-    // print("Answer Tapped");
   }
 
   @override
   Widget build(BuildContext context) {
+    // var dummy = const ['Hello'];
+    // dummy.add('Max');
+    // print(dummy);
+    // dummy = [];
+    // questions = []; // does not work if questions is a const
+
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Planet Quiz"),
-          ),
-          // ignore: prefer_const_literals_to_create_immutables
-          body: indexQuestion < questions.length
-              ? Quiz(
-                  questions: questions,
-                  //error in line below//
-                  answerQuestion: answerQuestion,
-                  indexQuestion: indexQuestion)
-              : Result()),
+        appBar: AppBar(
+          title: Text('My First App'),
+        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
+              )
+            : Result(),
+      ),
     );
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: sdk_version_ui_as_code
+
 import 'package:flutter/material.dart';
 
 import './answer.dart';
@@ -5,29 +7,27 @@ import './question.dart';
 
 class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
-  final VoidCallback answerQuestion;
-  final int indexQuestion;
+  final int questionIndex;
+  final Function answerQuestion;
 
   Quiz({
     @required this.questions,
     @required this.answerQuestion,
-    @required this.indexQuestion,
+    @required this.questionIndex,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Question(
-        questions[indexQuestion]['questionText'] as String,
-      ),
-      // ignore: sdk_version_ui_as_code
-      ...(questions[indexQuestion]['answer'] as List<Map<String, Object>>)
-          .map((answer) {
-        return Answer(
-            //error in line below
-            () => answerQuestion(answer['score']),
-            answer['text'] as String);
-      }).toList()
-    ]);
+    return Column(
+      children: [
+        Question(
+          questions[questionIndex]['questionText'],
+        ),
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
+            .map((answer) {
+          return Answer(() => answerQuestion(answer['score']), answer['text']);
+        }).toList()
+      ],
+    );
   }
 }
