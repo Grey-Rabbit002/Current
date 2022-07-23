@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
       'questionText': "How many planets are there in our solar system?",
-      'answer': [
+      'answers': [
         {'text': "9", 'score': 10},
         {'text': "8", 'score': 0},
         {'text': "5", 'score': 0},
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText':
           "To weigh roughly two-thirds less than what you do on Earth, which planet would you be on?",
-      'answer': [
+      'answers': [
         {'text': "Mercury", 'score': 0},
         {'text': "Venus", 'score': 0},
         {'text': "Mars", 'score': 10},
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText':
           "How long does it take for light from the Sun to reach Earth",
-      'answer': [
+      'answers': [
         {'text': "5", 'score': 0},
         {'text': "8", 'score': 10},
         {'text': "12", 'score': 0},
